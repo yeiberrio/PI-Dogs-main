@@ -1,14 +1,14 @@
-import axios from "axios";
-import { GETDOGBYID, ERROR } from "../Types";
+import { ERROR, POST_DOG } from "../Types";
+import axios from "axios"
 const ENDPOINT = 'https://api.thedogapi.com/v1/breeds';
 
-export const getDogsById = (id) => {
+export const postDogs = (newDog) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.get(ENDPOINT + id);
-            return dispatch ({
-                type: GETDOGBYID,
-                payload: data
+             await axios.get(ENDPOINT + newDog)
+            return dispatch({
+                type: POST_DOG
+               
             })
         } catch (error) {
             return dispatch({
@@ -16,5 +16,7 @@ export const getDogsById = (id) => {
                 payload: error.message
              });
         }
+        
     }
+
 }

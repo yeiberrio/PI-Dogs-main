@@ -39,6 +39,8 @@ life_span:{
   allowNull: false,
 
 }, 
+
+
 // temperament:{
 //   type: DataTypes.STRING,
 //   allowNull: false

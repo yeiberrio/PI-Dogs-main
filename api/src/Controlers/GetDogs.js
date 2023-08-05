@@ -23,7 +23,7 @@ const getApiInfo = async () => {
             height: dog.height.metric,            
             life_span: dog.life_span,
             temperament:dog.temperament,
-            origin: dog.origin,
+            // origin: dog.origin
         }
     })
     // return res.status(200).json(ApiInfo) 
