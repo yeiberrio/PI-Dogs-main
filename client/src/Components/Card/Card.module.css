@@ -13,12 +13,12 @@
         -moz-transition: .5s, color .10s;
         flex-direction: row;
 }
-/* .card:hover{
+.card:hover{
     
     transform: scale3d(1.5, 1.5, 0.3);
     -webkit-transform: scale3d(1.5, 1.5, 0.3);
     -moz-transform: scale3d(1.5, 1.5, 0.3);
-} */
+}
 .cardimage{
     height: 75px;
     width: 125px;
@@ -32,11 +32,11 @@ div{
         -webkit-transition: .5s, color .10s;
         -moz-transition: .5s, color .10s;
 }
-/* div.hover{
+div.hover{
     transform: scale3d(1.5, 1.5, 0.3);
         -webkit-transform: scale3d(1.5, 1.5, 0.3);
         -moz-transform: scale3d(1.5, 1.5, 0.3);
-} */
+}
               
   
               

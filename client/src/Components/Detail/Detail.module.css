@@ -5,10 +5,17 @@
     border-color: black;
     border-radius: 10%;
     background-color: darkgray;
-    height: 200px;
-    width: 200px;
+    height: 800px;
+    width: 800px;
     transition: .5s, color .10s;
         -webkit-transition: .5s, color .10s;
         -moz-transition: .5s, color .10s;
         flex-direction: row;
+}
+.cardimage{
+    height: 600px;
+    width: 750px;
+    border-radius: 10%;
+    
+    
 }

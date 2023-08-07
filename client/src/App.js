@@ -1,8 +1,7 @@
 import './App.css';
 import Home from './Components/Home/Home';
-import Filter from './Components/Filter/Filter';
-import Cards from './Components/Home/Home';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+
+import { Routes, Route } from 'react-router-dom';
 import LandinPage from './Components/Landing/Landing';
 import Detail from './Components/Detail/Detail';
 function App() {

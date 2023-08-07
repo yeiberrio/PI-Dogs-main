@@ -2,7 +2,7 @@ import {ERROR, GET_DOGS} from '../Types';
 import axios from "axios";
 const ENDPOINT = 'http://localhost:3001/dogs';
 
-// const ENDPOINT = 'http://localhost:3001/dogs';
+
 export const getDogs = (name) => {
     return async (dispatch) => {
 try {
