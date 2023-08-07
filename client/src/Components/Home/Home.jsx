@@ -24,10 +24,13 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       
-    
+      <Link to="/">
+          <div >Landing</div>
+        </Link>
       <button className={styles.homeButton} onClick={handleClick}>
         home
       </button>
+      
       {/* <Link to={`/home`}>ver dogs      </Link> */}
       <h1>PERROS PERROS</h1>
       <div className={styles.card}>

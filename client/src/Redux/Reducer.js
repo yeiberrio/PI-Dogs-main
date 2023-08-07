@@ -20,7 +20,8 @@ const reducer = (state= initialState, action) => {
     switch (action.type) {
         
         
-            case GET_DOGS:
+            case GET_DOGS:{
+
                 return{
                     ...state,
                     DogsFullList: action.payload,
@@ -38,7 +39,9 @@ const reducer = (state= initialState, action) => {
 
                 }
                 
-                case GETDOGBYID:
+            }
+                case GETDOGBYID:{
+
                     return{
                         ...state,
                         dogsDetail: action.payload,
@@ -46,6 +49,7 @@ const reducer = (state= initialState, action) => {
 
                 }
         
+                }
       
             case FILTERBYORIGIN:
 

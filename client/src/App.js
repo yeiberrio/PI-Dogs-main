@@ -3,6 +3,8 @@ import Home from './Components/Home/Home';
 import Filter from './Components/Filter/Filter';
 import Cards from './Components/Home/Home';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import LandinPage from './Components/Landing/Landing';
+import Detail from './Components/Detail/Detail';
 function App() {
    
   return (
@@ -11,10 +13,9 @@ function App() {
          <hr />
          <Routes>
             
-            <Route path="/J" element={
-               <h1>SOY LA APP</h1>
-            }/>
+            <Route path="/" element={ <LandinPage />  }/>
             <Route path="/home" element={<Home />} />
+            <Route path="/detail/:id" element={ <Detail />  }/>
             {/* <Route path="filter" element={<Filter />} /> */}
          </Routes>
          

@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import Card from '../Card/Card';
 import styles from '../Cards/Cards.module.css'
 import { useDispatch, connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
  function Cards({id, name, image, origin, weight, allDogs}) {
    //  const dispatch = useDispatch();
@@ -13,12 +14,11 @@ import { useDispatch, connect } from 'react-redux';
     
     return (
        <div className={styles.container}>
-            <div className={styles.Card}>
+            <div className={styles.Card} >
                                
-                
-                              
+          
                     {
-                         
+                          
                          allDogs.map(dog => (
                             
                             

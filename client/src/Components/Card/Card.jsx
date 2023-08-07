@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 import {connect} from 'react-redux';
-export default function Card({id, name, image, origin,  weight}) {
+export default function Card(props) {
 
   // const [isFav, setIsFav] = useState(false);
   //  const handleFavorite= () =>{
@@ -23,12 +23,17 @@ export default function Card({id, name, image, origin,  weight}) {
       <div className={styles.card} >
         {/* <button onClick={handleFavorite }>{isFav? '❤️' : '🤍' }</button> */}
         
-      <h2>{id}</h2>
+        <Link to={`/detail/${props.id}`}>
+          <h2 >Detail</h2>
+        </Link>
+      
+      {/* <h2>{id}</h2>
       <h3>{name}</h3>
-      <h4>{weight}</h4>
+      <h4>{weight}</h4> */}
       {/* <h4>{origin}</h4> */}
-      <img className={styles.cardimage}  src={image} alt='' />
+      <img className={styles.cardimage}  src={props.image} alt='' />
       </div>
+      
       
      
     
