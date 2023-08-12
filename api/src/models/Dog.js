@@ -11,19 +11,19 @@ id:{
       defaultValue:DataTypes.UUIDV4,
       primaryKey: true
     },
-    image:{
+image:{
       type: DataTypes.STRING,
       allowNull: false
     },
 
 
-  breed: {
+breed: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
     },
     
-    weight:{
+weight:{
       type: DataTypes.JSON,
       allowNull: true
     },

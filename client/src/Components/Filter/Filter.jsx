@@ -2,7 +2,7 @@ import { connect, useDispatch } from "react-redux"
 import Card from "../Card/Card"
 import { useState } from "react"
 
-import { filterByOrigin,orderCards  } from "../../Redux/Actions/Filter"
+import { filterByOrigin,filterTemperament,orderCards  } from "../../Redux/Actions/Filter"
 
 const Filter = ({allDogs}) => {
 
@@ -16,6 +16,11 @@ const handleOrder = (event) => {
    
 
 }
+const handleTemperament = (event) =>{
+    dispatch(
+        filterTemperament(event.target.value)
+    )
+}
 //declaro la funcion manejadora del filtrado por origen
 const handleFilterByOrigin = (event) => {
     dispatch(
@@ -28,15 +33,49 @@ const handleFilterByOrigin = (event) => {
         <div>
 
 <select onChange={handleOrder}>
+<option value="Default">Default</option>
         <option value="A">Ascendente</option>
         <option value="D">Descendente</option>
 
     </select>
+    <select onChange={handleOrder}>
+        <option value="A">A-Z</option>
+        <option value="D">Z-A</option>
+
+    </select>
             <select onChange={handleFilterByOrigin} >
+                <option value="Default"> Default</option>
                 <option value="All">All</option>
-                <option value="Germany">Germany</option>
-                <option value="France">France</option>
+                <option value="DATABASE">DATABASE</option>
+                <option value="API">API</option>
             </select>
+            <select onChange={handleTemperament}>
+                <option value="Curious">Curious</option>
+                <option value="Stubborn">Stubborn</option>
+                
+                <option value="Stubborn, Friendly, Affectionate, Loyal, Playful, Active">Playful</option>
+                <option value="Adventurous">Adventurous</option>
+                <option value="Active">Active</option>
+                <option value="ActFun-lovingive">Fun-loving</option>
+                <option value="Aloof">Aloof</option>
+                <option value="Clownish">Clownish</option>
+                <option value="Dignified">Dignified</option>
+                <option value="Independent">Independent</option>
+                <option value="Happy">Happy</option>
+                <option value="Wild">Wild</option>
+                <option value="Hardworking">Hardworking</option>
+                <option value="Dutiful">Dutiful</option>
+                <option value="Outgoing">Outgoing</option>
+                <option value="Friendly">Friendly</option>
+                <option value="Alert">Alert</option>
+                <option  value="Confident">Confident</option>
+            
+
+            </select>
+            
+                      
+       
+            <div></div>
             {
                 allDogs?.map((filt)=>{
                          return(

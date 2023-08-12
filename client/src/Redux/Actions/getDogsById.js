@@ -3,7 +3,7 @@ import { GETDOGBYID, ERROR } from "../Types";
 const ENDPOINT = 'http://localhost:3001/dogs/';
 
 export const getDogsById = (id) => {
-    console.log("soy el id  = "+id)
+    
     return async (dispatch) => {
         try {
             const {data} = await axios.get(ENDPOINT + id);

@@ -21,7 +21,7 @@ export default function Card(props) {
       {/* <h2>{id}</h2> */}
       <h3>{props.name}</h3>
       <h4>{props.weight}</h4>
-      {/* <h4>{origin}</h4> */}
+      {/* <h4>{props.temperament}</h4> */}
       <img className={styles.cardimage}  src={props.image} alt='' />
       </div>
       

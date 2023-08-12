@@ -23,7 +23,7 @@ function Detail (props) {
       <h3>WEIGHT:{props.dogsDetail.weight}</h3>
       <h3>HEIGHT:{props.dogsDetail.height}</h3>
       <h3>LIFE SPAN:{props.dogsDetail.life_span}</h3>
-      
+      <h3>TEMPERAMENT:{props.dogsDetail.temperament}</h3>
       {/* <h4>{origin}</h4> */}
       
       </div>

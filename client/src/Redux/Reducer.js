@@ -1,4 +1,4 @@
-import {GETDOGBYID, ORDER, FILTERBYORIGIN, GET_DOGS}  from './Types';
+import {GETDOGBYID, ORDER, FILTERBYORIGIN, GET_DOGS, FILTER_TEMPERAMENT}  from './Types';
 
 const initialState = {
 DogsFullList:[],
@@ -61,15 +61,50 @@ const reducer = (state= initialState, action) => {
                      action.payload === "All"?[...state.allDogs]: allDogsFiltered
                     
                 }
-                case ORDER:
+                case ORDER:{
 
-                    const allDogsCopy = [...state.allDogs]
-                    return{
-                        ...state,
-                        allDogs: action.payload==="A"
-                        ?allDogsCopy.sort((a, b) => a.id - b.id)
-                        :allDogsCopy.sort((a, b) => b.id - a.id)
+                     if( action.payload==="Default")  return{...state, allDogs:[...state.defaultOrderRef],
+                         DogsFullList: [...state.defaultOrderRef], order: action.payload,  filterByTemperament: "All" }
+                    const sortFunction = (a, b) => {
+                        if(action.payload === "A-Z" || action.payload === "Z-A" ){
+                           if (a.name.toLowerCase() > b.name.toLowerCase()) return "A-Z" === action.payload ? 1 : -1;
+                           if (a.name.toLowerCase() < b.name.toLowerCase()) return "Z-A" === action.payload ? 1 : -1;
+                        }else{
+                            if(a.id > b.id) return "A" === action.payload ? 1 : -1;
+                            if(a.id < b.id) return "D" === action.payload ? 1 : -1;
+                        }
+                        return 0;
+                        }
+                        const allDogsCopy = [...state.allDogs];
+                        const DogsFullListCopy = [...state.DogsFullList];
+                        const newAllDogsCopy = allDogsCopy.sort((a, b) => sortFunction(a,b));
+                        const newDogsFullList = DogsFullListCopy.sort((a, b) => sortFunction(a,b))
+                        return{
+                            ...state,
+                            allDogs : newAllDogsCopy,
+                            DogsFullList: newDogsFullList,
+                            order: action.payload,
+                            currentPage: 1,
+                        }
+
                     }
+                    case FILTER_TEMPERAMENT:{
+                        const allDogsFiltere = state.allDogs.filter(dog => dog.temperament == action.payload )
+                        return{
+                            ...state,
+                            filterByTemperament: action.payload == "Loving, Protective, Trainable, Dutiful, Responsible" 
+                            ? [...state.allDogs]:allDogsFiltere
+
+                        }
+                    }
+                        
+                    
+                           
+                            
+
+                             
+                  
+                    
             
         
         
