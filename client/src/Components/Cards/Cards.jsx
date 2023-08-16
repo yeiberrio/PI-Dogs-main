@@ -2,7 +2,7 @@ import { React } from 'react';
 import Card from '../Card/Card';
 import styles from '../Cards/Cards.module.css'
 import {  connect } from 'react-redux';
-
+const enpoin = "https://cdn2.thedogapi.com/images/"
 
  function Cards({id, name, image, origin, weight, allDogs}) {
    
@@ -14,10 +14,12 @@ import {  connect } from 'react-redux';
           
                     {
                           
-                         allDogs.map(dog => (
-                            
-                            
+                         allDogs.map((dog) => {
+                           
+                            return(
+
                                 <Card 
+                                
                                 
                                     key={dog.id}
                                     id={dog.id}
@@ -28,9 +30,15 @@ import {  connect } from 'react-redux';
                                     
                                    
                                 />
+                            )
+
+                         }
                             
-                        ))
-                     }
+                            
+                            
+                            
+                        )
+                        }
                
             </div>
             </div>

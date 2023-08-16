@@ -42,8 +42,8 @@ life_span:{
 
 
 // temperament:{
-//   type: DataTypes.STRING,
-//   allowNull: false
+//   type: DataTypes.JSON,
+//   allowNull: true
 // }
   }, {timestamps:false});
 };

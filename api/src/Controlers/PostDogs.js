@@ -53,7 +53,7 @@ const postDog = async ({
                     weight, 
                     height,
                     life_span,
-                    // temperament: temperamentJoin,
+                    temperament: temperament,
                 })
                
                 createDog.addTemperament(temperamentDb)

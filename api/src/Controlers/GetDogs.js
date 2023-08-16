@@ -5,19 +5,30 @@ const morgan = require ('morgan');
 const server = require('express');
 const { Dog, Temperament } = require('../db');
 
-
+const enpoin = "https://cdn2.thedogapi.com/images/";
+// const image = "BJa4kxc4X"; 
 
 
 // server.use(express.json());
 // server.use(morgan('dev'));
 const getApiInfo = async () => {
-    const ApiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+    const config = {
+        headers: {
+          'x-api-key': API_KEY,
+        },
+      };
+    const ApiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds`, config);
    
     const apiData = ApiUrl.data;//se accede a la propiedad data de apiurl
+
+    
+    
     const ApiInfo = await apiData.map((dog) => {
+        const imageUrl = enpoin+dog.reference_image_id.replace(/"/g, "")+".jpg"
         return{
+            
             id: dog.id,
-            image: dog.image.url,
+            image: imageUrl,
             breed: dog.name,  
             weight: dog.weight.metric,          
             height: dog.height.metric,            
@@ -32,7 +43,7 @@ const getApiInfo = async () => {
 
 const getDbInfo = async () => {
    return await Dog.findAll({
-
+    
     include:{
         model: Temperament,
         attributes:   [ "temperament"],

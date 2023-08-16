@@ -90,9 +90,10 @@ const reducer = (state= initialState, action) => {
                     }
                     case FILTER_TEMPERAMENT:{
                         const allDogsFiltere = state.allDogs.filter(dog => dog.temperament == action.payload )
+                        // const allDogsFiltered = allDogsFiltere.split(',')
                         return{
                             ...state,
-                            filterByTemperament: action.payload == "Loving, Protective, Trainable, Dutiful, Responsible" 
+                            filterByTemperament: action.payload == "playful" 
                             ? [...state.allDogs]:allDogsFiltere
 
                         }

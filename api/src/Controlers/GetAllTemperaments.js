@@ -15,6 +15,7 @@ const getAllTemperaments = async () => {
             }
         }
     });
+    // const totalTemp = new Set(temperaments);
     temperaments.forEach((temp) => {
         Temperament.findOrCreate({
             where: {temperament: temp},
