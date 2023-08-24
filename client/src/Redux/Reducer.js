@@ -6,12 +6,15 @@ allDogs: [],
 temperament: [],
 errors: false,
 dogsDetail: {},
+origin:[],
 defaultOrderRef:[],
 filterByOrigin: "All",
+filterByOriginy: [],
 filterByTemperament: "All",
 filteredByOrigin: [],
 filteredByTemperament:[],
 order:"Default",
+
 currentPage: 1
 
 }
@@ -26,11 +29,15 @@ const reducer = (state= initialState, action) => {
                     ...state,
                     DogsFullList: action.payload,
                     allDogs: action.payload,
+                    filterByOriginy: action.payload,
                     errors: false,
                     defaultOrderRef:action.payload,
+
+                    origin:action.payload,
+
                     filterByOrigin: "All",
                     filterByTemperament: "All",
-                    order: "Default",
+                    order: action.payload,
                     currentPage: 1,
                     dogsDetail: {}
 
@@ -51,16 +58,36 @@ const reducer = (state= initialState, action) => {
         
                 }
       
-            case FILTERBYORIGIN:
+            case FILTERBYORIGIN:{
 
-            // declaro una constante en la cual guardo una copia del arreglo que contiene todos los perros para no modificarlos
-            const allDogsFiltered = state.allDogs.filter(dog => dog.origin == action.payload )
-                return{
-                    ...state,
-                    allDogs:
-                     action.payload === "All"?[...state.allDogs]: allDogsFiltered
-                    
-                }
+                // declaro una constante en la cual guardo una copia del arreglo que contiene todos los perros para no modificarlos
+                
+               const allDogsFilter = state.allDogs.filter(dog => dog.id <= "3");
+                const allDogsFiltered = state.allDogs.filter(dog => dog.createDb === "true" );
+                
+                if(action.payload==="DEFAULT")  return{...state, allDogs:[...state.defaultOrderRef],
+                    DogsFullList: [...state.defaultOrderRef], order: action.payload,  filterByTemperament: "All" } 
+                if(action.payload==="All")  return{...state, allDogs:[...state.defaultOrderRef],
+                    DogsFullList: [...state.defaultOrderRef], order: action.payload,  filterByTemperament: "All" }
+
+                // if(action.payload == "DATABASE") return{...state,  allDogs:[...state.allDogs]}
+                // if(action.payload == "APIS") return{...state,  DogsFullList:[...state.allDogsFiltered]}
+                
+                
+                
+                
+    
+                    return{
+                        ...state,
+                        // allDogs: allDogsFiltered, 
+                        allDogs: 
+                        action.payload === "API" 
+                        ? allDogsFilter:allDogsFiltered                  
+
+                        
+                    }
+            }
+
                 case ORDER:{
 
                      if( action.payload==="Default")  return{...state, allDogs:[...state.defaultOrderRef],
@@ -75,6 +102,9 @@ const reducer = (state= initialState, action) => {
                         }
                         return 0;
                         }
+                        
+
+                        
                         const allDogsCopy = [...state.allDogs];
                         const DogsFullListCopy = [...state.DogsFullList];
                         const newAllDogsCopy = allDogsCopy.sort((a, b) => sortFunction(a,b));
@@ -100,15 +130,7 @@ const reducer = (state= initialState, action) => {
                     }
                         
                     
-                           
-                            
-
-                             
-                  
-                    
-            
-        
-        
+                          
             
         default:
             return {...state}

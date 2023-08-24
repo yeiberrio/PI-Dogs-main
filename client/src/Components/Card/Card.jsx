@@ -22,6 +22,8 @@ export default function Card(props) {
       <h3>{props.id}</h3>
       <h3>{props.name}</h3>
       <h4>{props.weight}</h4>
+      <h4>{props.createDb}</h4>
+      
       {/* <h4>{props.temperament}</h4> */}
       <img className={styles.cardimage}  src={props.image} alt='esta es una imagen de perro' />
       </div>

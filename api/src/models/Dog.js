@@ -39,6 +39,11 @@ life_span:{
   allowNull: false,
 
 }, 
+createDb:{
+  type: DataTypes.STRING,
+  defaultValue: "true",
+  allowNull: true
+},
 
 
 // temperament:{

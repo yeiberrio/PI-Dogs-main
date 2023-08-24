@@ -5,7 +5,7 @@ const morgan = require ('morgan');
 const server = require('express');
 const { Dog, Temperament } = require('../db');
 
-const enpoin = "https://cdn2.thedogapi.com/images/";
+const endpoint = "https://cdn2.thedogapi.com/images/";
 // const image = "BJa4kxc4X"; 
 
 
@@ -24,7 +24,7 @@ const getApiInfo = async () => {
     
     
     const ApiInfo = await apiData.map((dog) => {
-        const imageUrl = enpoin+dog.reference_image_id.replace(/"/g, "")+".jpg"
+        const imageUrl = endpoint+dog.reference_image_id.replace(/"/g, "")+".jpg"
         return{
             
             id: dog.id,
@@ -33,6 +33,7 @@ const getApiInfo = async () => {
             weight: dog.weight.metric,          
             height: dog.height.metric,            
             life_span: dog.life_span,
+            createDb: dog.createDb,
             temperament:dog.temperament,
             // origin: dog.origin
         }
@@ -44,18 +45,21 @@ const getApiInfo = async () => {
 const getDbInfo = async () => {
    return await Dog.findAll({
     
-    include:{
+    include:[{
         model: Temperament,
         attributes:   [ "temperament"],
         through:{
             attributes: [],
         }
-    }
+    }]
    } 
 
    )
 }
+
+
 // getDbInfo()
+
 
 const getAllDogs = async () =>{
    

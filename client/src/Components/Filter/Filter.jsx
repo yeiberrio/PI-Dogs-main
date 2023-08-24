@@ -44,7 +44,7 @@ const handleFilterByOrigin = (event) => {
 
     </select>
             <select onChange={handleFilterByOrigin} >
-                <option value="Default"> Default</option>
+                <option value="DEFAULT"> Default</option>
                 <option value="All">All</option>
                 <option value="DATABASE">DATABASE</option>
                 <option value="API">API</option>
