@@ -1,5 +1,5 @@
 const {Dogs} = require ('../db');
-const getAllDogs = require ('../Controlers/GetDogs');
+const getAllDogs = require     ('../Controlers/GetDogs');
 
 
 const getDogById = async (id) => {

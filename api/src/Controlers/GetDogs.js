@@ -43,7 +43,7 @@ const getApiInfo = async () => {
 }
 
 const getDbInfo = async () => {
-   return await Dog.findAll({
+   return await     Dog.findAll({
     
     include:[{
         model: Temperament,

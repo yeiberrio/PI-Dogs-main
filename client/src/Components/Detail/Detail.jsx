@@ -6,9 +6,9 @@ import { Link, useParams } from "react-router-dom";
 
 
 function Detail (props) {
-    const { id } = useParams();
+        const { id } = useParams();
     const dispatch = useDispatch();
-    useEffect(() => {dispatch(getDogsById(id))}, [dispatch, id]);
+               useEffect(() => {dispatch(getDogsById(id))}, [dispatch, id]);
 
 
     return(

@@ -46,7 +46,7 @@ const postDog = async ({
 }) => {
     const temperamentDb = await Temperament.findAll({
                     where: {temperament: temperament},
-                })
+                     })
     let createDog = await Dog.create({
                     image,
                     breed,

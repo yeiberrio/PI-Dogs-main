@@ -50,13 +50,13 @@ const handleFilterByOrigin = (event) => {
                 <option value="API">API</option>
             </select>
             <select onChange={handleTemperament}>
-                <option value="Curious">Curious</option>
+                <option value="All">All</option>
                 <option value="Stubborn">Stubborn</option>
                 
-                <option value="Stubborn, Friendly, Affectionate, Loyal, Playful, Active">Playful</option>
+                <option value="Playful">Playful</option>
                 <option value="Adventurous">Adventurous</option>
                 <option value="Active">Active</option>
-                <option value="ActFun-lovingive">Fun-loving</option>
+                <option value="Fun-loving">Fun-loving</option>
                 <option value="Aloof">Aloof</option>
                 <option value="Clownish">Clownish</option>
                 <option value="Dignified">Dignified</option>

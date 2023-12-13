@@ -7,7 +7,7 @@ export const getDogsById = (id) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.get(ENDPOINT + id);
-            return dispatch ({
+                return dispatch ({
                 type: GETDOGBYID,
                 payload: data
             })

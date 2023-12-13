@@ -3,7 +3,7 @@ import axios from "axios";
 const ENDPOINT = 'http://localhost:3001/dogs';
 
 
-export const getDogs = (name) => {
+    export const getDogs = (name) => {
     return async (dispatch) => {
 try {
     if(name){

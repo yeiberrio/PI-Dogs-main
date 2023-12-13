@@ -23,7 +23,8 @@ async (req, res) => {
         let allDogs = await getAllDogs();//me faltaba el AWAIT AQUI
        
         if(breed){
-            let dogBreed= await allDogs.filter((dog) => dog.breed.toLowerCase().includes(breed.toLowerCase())
+            let dogBreed= await allDogs.filter((dog) => 
+            dog.breed.toLowerCase().includes(breed.toLowerCase())
                      
             );
             console.log(dogBreed)  

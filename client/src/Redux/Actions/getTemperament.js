@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ERROR, GET_TEMPERAMENT, FILTER_TEMPERAMENT } from "../Types";
-const ENDPOINT = 'https://api.thedogapi.com/v1/breeds/temperament';
+const ENDPOINT = 'http://localhost:3001/temperament';
 
 
 export const getTemperament = () => {
@@ -8,8 +8,26 @@ export const getTemperament = () => {
         try {
             const {data} = await axios.get(ENDPOINT )
              return dispatch({
-                type: FILTER_TEMPERAMENT,
+                type: FILTER_TEMPERAMENT, 
                 payload: data
+             })
+             
+        } catch (error) {
+            return dispatch({
+                type: ERROR,
+                payload: error.message
+             });
+        }
+    }
+}
+
+export const getAllTemp = () => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.get(ENDPOINT )
+             return dispatch({
+                type: GET_TEMPERAMENT, 
+                payload: data,
              })
         } catch (error) {
             return dispatch({
@@ -19,4 +37,5 @@ export const getTemperament = () => {
         }
     }
 }
+console.log(getAllTemp())
 

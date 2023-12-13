@@ -46,9 +46,9 @@ createDb:{
 },
 
 
-// temperament:{
-//   type: DataTypes.JSON,
-//   allowNull: true
-// }
+ temperament:{
+   type: DataTypes.JSON,
+   allowNull: true
+ }
   }, {timestamps:false});
 };
